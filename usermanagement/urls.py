@@ -1,6 +1,6 @@
 from django.urls import path
 from django.urls import path
-from .views import SignupView, LoginView, LogoutView, ProfileView, UpdateProfileView, ForgotPasswordView
+from .views import SignupView, LoginView, LogoutView, ProfileView, UpdateProfileView, ForgotPasswordView, root
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from rest_framework.permissions import AllowAny
@@ -22,6 +22,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
+    path('', root, name='root'),  # Root endpoint
     path('signup/', SignupView.as_view(), name='signup'),
     path('login/', LoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(), name='logout'),
