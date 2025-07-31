@@ -13,6 +13,10 @@ from knox.auth import TokenAuthentication
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from .serializers import SignupSerializer, LoginSerializer, LogoutSerializer, UserSerializer, UpdateProfileSerializer, ForgotPasswordSerializer
+from django.http import HttpResponse
+
+def root(request):
+    return HttpResponse("Welcome to KajBondhu User Management API")
 
 class SignupView(APIView):
     permission_classes = [AllowAny]
